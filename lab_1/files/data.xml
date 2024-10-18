@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <timestamp>2024-10-24T10:19:08.286073</timestamp>
+  <products>
+    <item>
+      <name>Telefon mobil iPhone 13 Mini 128GB Green</name>
+      <price>779.79</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-mini-128gb-green/</link>
+      <screen_size>5.4</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 13 Mini 256GB Green</name>
+      <price>842.41</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-mini-256gb-green/</link>
+      <screen_size>5.4</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 13 128GB Green</name>
+      <price>660.26</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-128gb-green/</link>
+      <screen_size>N/A</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 13 256GB Green</name>
+      <price>796.87</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-256gb-green/</link>
+      <screen_size>6.1</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 13 512GB Green</name>
+      <price>893.64</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-512gb-green/</link>
+      <screen_size>6.1</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone SE 64GB (2022) Midnight</name>
+      <price>455.33</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2022-midnight/</link>
+      <screen_size>4.7</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone SE 64GB (2022) Red</name>
+      <price>455.33</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2022-red/</link>
+      <screen_size>4.7</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone SE 64GB (2022) Starlight</name>
+      <price>455.33</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2022-starlight/</link>
+      <screen_size>4.7</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone SE 128GB (2022) Starlight</name>
+      <price>478.1</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-128gb-2022-starlight/</link>
+      <screen_size>4.7</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone SE 128GB (2022) Red</name>
+      <price>478.1</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-128gb-2022-red/</link>
+      <screen_size>4.7</screen_size>
+    </item>
+  </products>
+  <total_price>6295.160000000001</total_price>
+</root>

@@ -1,0 +1,77 @@
+CUSTOM_FORMAT:
+{
+  timestamp: 2024-10-24T10:19:08.286073
+  products: [
+    {
+      name: Telefon mobil iPhone 13 Mini 128GB Green
+      price: 779.79
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-mini-128gb-green/
+      screen_size: 5.4
+    }
+    {
+      name: Telefon mobil iPhone 13 Mini 256GB Green
+      price: 842.41
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-mini-256gb-green/
+      screen_size: 5.4
+    }
+    {
+      name: Telefon mobil iPhone 13 128GB Green
+      price: 660.26
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-128gb-green/
+      screen_size: N/A
+    }
+    {
+      name: Telefon mobil iPhone 13 256GB Green
+      price: 796.87
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-256gb-green/
+      screen_size: 6.1
+    }
+    {
+      name: Telefon mobil iPhone 13 512GB Green
+      price: 893.64
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-13-512gb-green/
+      screen_size: 6.1
+    }
+    {
+      name: Telefon mobil iPhone SE 64GB (2022) Midnight
+      price: 455.33
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2022-midnight/
+      screen_size: 4.7
+    }
+    {
+      name: Telefon mobil iPhone SE 64GB (2022) Red
+      price: 455.33
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2022-red/
+      screen_size: 4.7
+    }
+    {
+      name: Telefon mobil iPhone SE 64GB (2022) Starlight
+      price: 455.33
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2022-starlight/
+      screen_size: 4.7
+    }
+    {
+      name: Telefon mobil iPhone SE 128GB (2022) Starlight
+      price: 478.1
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-128gb-2022-starlight/
+      screen_size: 4.7
+    }
+    {
+      name: Telefon mobil iPhone SE 128GB (2022) Red
+      price: 478.1
+      currency: EUR
+      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-128gb-2022-red/
+      screen_size: 4.7
+    }
+  ]
+  total_price: 6295.160000000001
+}
