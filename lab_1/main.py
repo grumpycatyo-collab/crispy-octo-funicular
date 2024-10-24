@@ -1,7 +1,7 @@
 from scraper import scrape_cactus_phones
 from processor import process_products
 from serializer import manual_json_serialize, manual_xml_serialize, CustomSerializer
-from docker_client import send_to_docker_server
+from docker_client import send_authenticated_request
 
 def save_serialized_data(processed_data):
     json_data = manual_json_serialize(processed_data)
@@ -37,10 +37,10 @@ def main():
 
     print("\nSending to Docker server...")
     try:
-        json_response = send_to_docker_server(json_data, 'application/json')
+        json_response = send_authenticated_request(json_data, 'application/json')
         print("\nJSON Response:", json_response)
 
-        xml_response = send_to_docker_server(xml_data, 'application/xml')
+        xml_response = send_authenticated_request(xml_data, 'application/xml')
         print("\nXML Response:", xml_response)
     except Exception as e:
         print(f"Error sending to Docker server: {e}")
