@@ -1,69 +1,69 @@
 CUSTOM_FORMAT:
 {
-  timestamp: 2024-10-24T10:50:52.267562
+  timestamp: "2024-10-24T11:04:48.858450"
   products: [
     {
-      name: Telefon mobil BlackView BV5300 Pro 4/64Gb Green
+      name: "Telefon mobil BlackView BV5300 Pro 4/64Gb Green"
       price: 227.64
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/blackview-bv5300-pro-4-64gb-green/
-      screen_size: 6.1
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/blackview-bv5300-pro-4-64gb-green/"
+      screen_size: "6.1"
     }
     {
-      name: Telefon mobil Samsung Galaxy Flip 4 8/256GB Bora Purple
+      name: "Telefon mobil Samsung Galaxy Flip 4 8/256GB Bora Purple"
       price: 597.64
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/galaxy-flip-4-8-256gb-bora-purple/
-      screen_size: N/A
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/galaxy-flip-4-8-256gb-bora-purple/"
+      screen_size: "N/A"
     }
     {
-      name: Telefon mobil Samsung Galaxy X Cover 6 Pro G736 6/128GB Dual Black
+      name: "Telefon mobil Samsung Galaxy X Cover 6 Pro G736 6/128GB Dual Black"
       price: 591.95
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/galaxy-x-cover-6-pro-g736-6-128gb-dual-black/
-      screen_size: 6.6
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/galaxy-x-cover-6-pro-g736-6-128gb-dual-black/"
+      screen_size: "6.6"
     }
     {
-      name: Telefon Mobil Google Pixel 6a 5G 6/128GB Chalk White
+      name: "Telefon Mobil Google Pixel 6a 5G 6/128GB Chalk White"
       price: 364.26
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-chalk-white/
-      screen_size: N/A
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-chalk-white/"
+      screen_size: "N/A"
     }
     {
-      name: Telefon Mobil Google Pixel 6a 5G 6/128GB Charcoal
+      name: "Telefon Mobil Google Pixel 6a 5G 6/128GB Charcoal"
       price: 392.72
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-charcoal/
-      screen_size: N/A
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-charcoal/"
+      screen_size: "N/A"
     }
     {
-      name: Telefon Mobil Google Pixel 6a 5G 6/128GB Sage
+      name: "Telefon Mobil Google Pixel 6a 5G 6/128GB Sage"
       price: 392.72
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-sage/
-      screen_size: N/A
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-sage/"
+      screen_size: "N/A"
     }
     {
-      name: Telefon Mobil Google Pixel 6 Pro 5G 12/128Gb Sorta Sunny
+      name: "Telefon Mobil Google Pixel 6 Pro 5G 12/128Gb Sorta Sunny"
       price: 540.72
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-sorta-sunny/
-      screen_size: N/A
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-sorta-sunny/"
+      screen_size: "N/A"
     }
     {
-      name: Telefon Mobil Google Pixel 6 Pro 5G 12/128GB Stormy Black
+      name: "Telefon Mobil Google Pixel 6 Pro 5G 12/128GB Stormy Black"
       price: 472.41
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-stormy-black/
-      screen_size: N/A
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-stormy-black/"
+      screen_size: "N/A"
     }
     {
-      name: Telefon Mobil Google Pixel 6 Pro 5G 12/128GB White
+      name: "Telefon Mobil Google Pixel 6 Pro 5G 12/128GB White"
       price: 540.72
-      currency: EUR
-      link: https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-white/
-      screen_size: N/A
+      currency: "EUR"
+      link: "https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-white/"
+      screen_size: "N/A"
     }
   ]
   total_price: 4120.780000000001
