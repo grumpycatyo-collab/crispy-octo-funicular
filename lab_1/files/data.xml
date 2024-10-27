@@ -1,70 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-  <timestamp>2024-10-24T11:04:48.858450</timestamp>
+  <timestamp>2024-10-25T12:24:16.075876</timestamp>
   <products>
     <item>
-      <name>Telefon mobil BlackView BV5300 Pro 4/64Gb Green</name>
-      <price>227.64</price>
+      <name>Telefon mobil iPhone 11 128GB Yellow</name>
+      <price>489.49</price>
       <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/blackview-bv5300-pro-4-64gb-green/</link>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-128gb-yellow/</link>
       <screen_size>6.1</screen_size>
     </item>
     <item>
-      <name>Telefon mobil Samsung Galaxy Flip 4 8/256GB Bora Purple</name>
-      <price>597.64</price>
+      <name>Telefon mobil iPhone 11 128GB White</name>
+      <price>506.56</price>
       <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/galaxy-flip-4-8-256gb-bora-purple/</link>
-      <screen_size>N/A</screen_size>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-128gb-white/</link>
+      <screen_size>6.1</screen_size>
     </item>
     <item>
-      <name>Telefon mobil Samsung Galaxy X Cover 6 Pro G736 6/128GB Dual Black</name>
-      <price>591.95</price>
+      <name>Telefon mobil iPhone 11 128GB Purple</name>
+      <price>535.03</price>
       <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/galaxy-x-cover-6-pro-g736-6-128gb-dual-black/</link>
-      <screen_size>6.6</screen_size>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-128gb-purple/</link>
+      <screen_size>6.1</screen_size>
     </item>
     <item>
-      <name>Telefon Mobil Google Pixel 6a 5G 6/128GB Chalk White</name>
-      <price>364.26</price>
+      <name>Telefon mobil iPhone 11 128GB Green</name>
+      <price>535.03</price>
       <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-chalk-white/</link>
-      <screen_size>N/A</screen_size>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-128gb-green/</link>
+      <screen_size>6.1</screen_size>
     </item>
     <item>
-      <name>Telefon Mobil Google Pixel 6a 5G 6/128GB Charcoal</name>
-      <price>392.72</price>
+      <name>Telefon mobil iPhone 11 128GB Black</name>
+      <price>506.56</price>
       <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-charcoal/</link>
-      <screen_size>N/A</screen_size>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-128gb-black/</link>
+      <screen_size>6.1</screen_size>
     </item>
     <item>
-      <name>Telefon Mobil Google Pixel 6a 5G 6/128GB Sage</name>
-      <price>392.72</price>
+      <name>Telefon mobil iPhone 11 128GB Red</name>
+      <price>535.03</price>
       <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6a-5g-6-128gb-sage/</link>
-      <screen_size>N/A</screen_size>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-128gb-red/</link>
+      <screen_size>6.1</screen_size>
     </item>
     <item>
-      <name>Telefon Mobil Google Pixel 6 Pro 5G 12/128Gb Sorta Sunny</name>
-      <price>540.72</price>
-      <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-sorta-sunny/</link>
-      <screen_size>N/A</screen_size>
-    </item>
-    <item>
-      <name>Telefon Mobil Google Pixel 6 Pro 5G 12/128GB Stormy Black</name>
+      <name>Telefon mobil iPhone 11 64GB Yellow</name>
       <price>472.41</price>
       <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-stormy-black/</link>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-64gb-yellow/</link>
+      <screen_size>6.1</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 11 64GB Green</name>
+      <price>472.41</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-64gb-green/</link>
+      <screen_size>6.1</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 11 64GB White</name>
+      <price>455.33</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-64gb-white/</link>
+      <screen_size>6.1</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 11 64GB Red</name>
+      <price>472.41</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-64gb-red/</link>
+      <screen_size>6.1</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 11 64GB Black</name>
+      <price>455.33</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-64gb-black/</link>
+      <screen_size>6.1</screen_size>
+    </item>
+    <item>
+      <name>Telefon mobil iPhone 11 64GB Purple</name>
+      <price>472.41</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-11-64gb-purple/</link>
+      <screen_size>6.1</screen_size>
+    </item>
+    <item>
+      <name>iPhone SE 64GB (2020) Black</name>
+      <price>398.41</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2020-black/</link>
       <screen_size>N/A</screen_size>
     </item>
     <item>
-      <name>Telefon Mobil Google Pixel 6 Pro 5G 12/128GB White</name>
-      <price>540.72</price>
+      <name>iPhone SE 64GB (2020) Red</name>
+      <price>398.41</price>
       <currency>EUR</currency>
-      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/google-pixel-6-pro-5g-12-128gb-white/</link>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2020-red/</link>
+      <screen_size>N/A</screen_size>
+    </item>
+    <item>
+      <name>iPhone SE 64GB (2020) White</name>
+      <price>398.41</price>
+      <currency>EUR</currency>
+      <link>https://www.cactus.md/ro/catalogue/electronice/telefone/mobilnye-telefony/iphone-se-64gb-2020-white/</link>
       <screen_size>N/A</screen_size>
     </item>
   </products>
-  <total_price>4120.780000000001</total_price>
+  <total_price>7103.229999999999</total_price>
 </root>

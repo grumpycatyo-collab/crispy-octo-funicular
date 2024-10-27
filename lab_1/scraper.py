@@ -19,7 +19,6 @@ def make_https_request(host, path):
                     break
                 response += data
 
-    # Split response into headers and body
     response = response.decode('utf-8')
     try:
         headers, body = response.split('\r\n\r\n', 1)
