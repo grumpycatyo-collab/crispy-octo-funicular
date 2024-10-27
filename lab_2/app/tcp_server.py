@@ -11,7 +11,8 @@ write_lock = Lock()
 read_lock = Lock()
 
 
-def handle_client(client_socket):
+def handle_client(client_socket, addr):
+    print(f"Client connected from {addr}")
     while True:
         try:
             data = client_socket.recv(1024).decode()
@@ -38,6 +39,7 @@ def handle_client(client_socket):
                         read_lock.release()
 
                 client_socket.send("Write successful".encode())
+                print(f"Write operation successful for client {addr}")
 
             elif command["type"] == "read":
                 time.sleep(random.randint(1, 7))
@@ -46,20 +48,25 @@ def handle_client(client_socket):
                         with open("data.txt", "r") as f:
                             content = f.read()
                             client_socket.send(content.encode())
+                print(f"Read operation successful for client {addr}")
 
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"Error for client {addr}: {e}")
             break
 
+    print(f"Client {addr} disconnected")
     client_socket.close()
 
 
 def start_tcp_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(("0.0.0.0", 9999))
+    server.bind(("0.0.0.0", 9989))
+    print("Server started on port 9989")
     server.listen(5)
+    print("Server listening for connections...")
 
     while True:
         client_socket, addr = server.accept()
-        client_handler = threading.Thread(target=handle_client, args=(client_socket,))
+        print(f"Accepted connection from {addr}")
+        client_handler = threading.Thread(target=handle_client, args=(client_socket, addr))
         client_handler.start()

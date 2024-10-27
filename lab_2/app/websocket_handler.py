@@ -35,7 +35,9 @@ class WebSocketServer:
 
     def run(self):
         server = websockets.serve(self.handler, "0.0.0.0", 8765)
+        print("WebSocket server started on port 8765")
         asyncio.get_event_loop().run_until_complete(server)
+        print("WebSocket server listening for connections...")
         asyncio.get_event_loop().run_forever()
 
 

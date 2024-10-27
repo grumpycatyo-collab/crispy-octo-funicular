@@ -9,14 +9,11 @@ from app.tcp_server import start_tcp_server
 
 app = FastAPI()
 
-# Create database tables
 models.Base.metadata.create_all(bind=database.engine)
 
-# Start WebSocket server in a separate thread
 websocket_thread = threading.Thread(target=websocket_app.run)
 websocket_thread.start()
 
-# Start TCP server in a separate thread
 tcp_thread = threading.Thread(target=start_tcp_server)
 tcp_thread.start()
 
