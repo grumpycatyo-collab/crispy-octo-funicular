@@ -4,15 +4,21 @@ from sqlalchemy.orm import Session
 from typing import List
 import json
 from app import models, schemas, database
-from app.websocket_handler import websocket_app
+from app.websocket_handler import start_websocket_server, start_http_server
 from app.tcp_server import start_tcp_server
 
 app = FastAPI()
 
 models.Base.metadata.create_all(bind=database.engine)
 
-websocket_thread = threading.Thread(target=websocket_app.run)
-websocket_thread.start()
+http_thread = threading.Thread(target=start_http_server)
+http_thread.start()
+
+ws_thread = threading.Thread(target=start_websocket_server)
+ws_thread.start()
+
+http_thread.join()
+ws_thread.join()
 
 tcp_thread = threading.Thread(target=start_tcp_server)
 tcp_thread.start()
