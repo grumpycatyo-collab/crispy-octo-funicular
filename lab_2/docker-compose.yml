@@ -11,17 +11,18 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-#
-#  app:
-#    build: .
-#    ports:
-#      - "8000:8000"
-#      - "8765:8765"
-#      - "9999:9999"
-#    depends_on:
-#      - db
-#    environment:
-#      - DATABASE_URL=postgresql://user:password@db:5432/products_db
+
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+      - "8765:8765"
+      - "9989:9989"
+      - "8081:8081"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/products_db
 
 volumes:
   postgres_data:
