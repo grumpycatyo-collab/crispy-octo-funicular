@@ -75,8 +75,8 @@ def start_http_server():
 
 def start_websocket_server():
     websocket_app = WebSocketServer()
-    loop = asyncio.new_event_loop()  # Create a new event loop
-    asyncio.set_event_loop(loop)     # Set the new loop for the current thread
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     loop.run_until_complete(websocket_app.run())
     loop.run_forever()
 

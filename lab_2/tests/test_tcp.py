@@ -8,7 +8,7 @@ import random
 def send_command(command):
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client.connect(("127.0.0.1", 9989))
+        client.connect(("0.0.0.0", 9989))
         client.send(json.dumps(command).encode())
         response = client.recv(1024).decode()
         print("Response from server:", response)
