@@ -4,25 +4,14 @@ from sqlalchemy.orm import Session
 from typing import List
 import json
 from app import models, schemas, database
+from app.database import Base, engine
 from app.websocket_handler import start_websocket_server, start_http_server
 from app.tcp_server import start_tcp_server
+import uvicorn
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
-models.Base.metadata.create_all(bind=database.engine)
-
-http_thread = threading.Thread(target=start_http_server)
-http_thread.start()
-
-ws_thread = threading.Thread(target=start_websocket_server)
-ws_thread.start()
-
-http_thread.join()
-ws_thread.join()
-
-tcp_thread = threading.Thread(target=start_tcp_server)
-tcp_thread.start()
-
 
 @app.post("/products/", response_model=schemas.Product)
 def create_product(product: schemas.ProductCreate, db: Session = Depends(database.get_db)):
@@ -79,3 +68,24 @@ async def upload_file(file: UploadFile = File(...)):
         data = json.loads(content)
         return {"filename": file.filename, "content": data}
     return {"filename": file.filename}
+
+
+config = uvicorn.Config(app, host="0.0.0.0", port=8000, loop="asyncio")
+server = uvicorn.Server(config)
+
+if __name__ == "__main__":
+    uvicorn_thread = threading.Thread(target=server.run)
+    http_thread = threading.Thread(target=start_http_server)
+    ws_thread = threading.Thread(target=start_websocket_server)
+    tcp_thread = threading.Thread(target=start_tcp_server)
+
+    uvicorn_thread.start()
+    http_thread.start()
+    ws_thread.start()
+    tcp_thread.start()
+
+    uvicorn_thread.join()
+    http_thread.join()
+    ws_thread.join()
+    tcp_thread.join()
+

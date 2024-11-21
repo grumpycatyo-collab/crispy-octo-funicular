@@ -1,7 +1,19 @@
 version: '3.8'
 
 services:
-  db:
+  app:
+    build: .
+    ports:
+      - "8000:8000"  # uvicorn
+      - "8081:8081"  # HTTP
+      - "8765:8765"  # WebSocket
+      - "9989:9989"  # TCP
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://user:password@postgres:5432/products_db
+
+  postgres:
     image: postgres:13
     environment:
       POSTGRES_USER: user
@@ -12,17 +24,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  app:
-    build: .
-    ports:
-      - "8000:8000"
-      - "8765:8765"
-      - "9989:9989"
-      - "8081:8081"
-    depends_on:
-      - db
-    environment:
-      - DATABASE_URL=postgresql://user:password@db:5432/products_db
-
 volumes:
   postgres_data:
+    driver: local
