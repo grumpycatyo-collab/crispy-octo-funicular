@@ -5,9 +5,9 @@ services:
     build: .
     ports:
       - "8000:8000"  # uvicorn
-      - "8081:8081"  # HTTP
-      - "8765:8765"  # WebSocket
-      - "9989:9989"  # TCP
+#      - "8081:8081"  # HTTP
+#      - "8765:8765"  # WebSocket
+#      - "9989:9989"  # TCP
     depends_on:
       - postgres
     environment:

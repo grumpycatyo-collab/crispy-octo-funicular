@@ -75,17 +75,17 @@ server = uvicorn.Server(config)
 
 if __name__ == "__main__":
     uvicorn_thread = threading.Thread(target=server.run)
-    http_thread = threading.Thread(target=start_http_server)
-    ws_thread = threading.Thread(target=start_websocket_server)
-    tcp_thread = threading.Thread(target=start_tcp_server)
+    # http_thread = threading.Thread(target=start_http_server)
+    # ws_thread = threading.Thread(target=start_websocket_server)
+    # tcp_thread = threading.Thread(target=start_tcp_server)
 
     uvicorn_thread.start()
-    http_thread.start()
-    ws_thread.start()
-    tcp_thread.start()
+    # http_thread.start()
+    # ws_thread.start()
+    # tcp_thread.start()
 
     uvicorn_thread.join()
-    http_thread.join()
-    ws_thread.join()
-    tcp_thread.join()
+    # http_thread.join()
+    # ws_thread.join()
+    # tcp_thread.join()
 
