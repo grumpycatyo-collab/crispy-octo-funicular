@@ -1,6 +1,6 @@
 import pika
 import json
-from scraper import scrape_cactus_phones
+from scraper.scraper import scrape_cactus_phones
 
 def publish_products():
     connection = pika.BlockingConnection(

@@ -50,7 +50,7 @@ def scrape_cactus_phones():
     soup = BeautifulSoup(body, 'html.parser')
     products = soup.find_all('div', class_='catalog__pill')
     scraped_products = []
-
+    print("Started scraping products")
     for product in products:
         try:
             name = product.find('span', class_='catalog__pill__text__title').text.strip()
@@ -76,9 +76,59 @@ def scrape_cactus_phones():
             }
 
             scraped_products.append(product_data)
-
         except Exception as e:
             print(f"Error scraping product: {e}")
             continue
-
+    print("Finished the scraping")
     return scraped_products
+
+
+def mock_scrape_cactus_phones():
+    """
+    Mock version of scrape_cactus_phones() that returns test data
+    without making actual HTTP requests
+    """
+    mock_products = [
+        {
+            'name': 'iPhone 14 Pro Max',
+            'price': 25999,
+            'currency': 'MDL',
+            'link': 'https://www.cactus.md/ro/catalogue/iphone-14-pro-max',
+            'screen_size': '6.7'
+        },
+        {
+            'name': 'Samsung Galaxy S23 Ultra',
+            'price': 23499,
+            'currency': 'MDL',
+            'link': 'https://www.cactus.md/ro/catalogue/samsung-s23-ultra',
+            'screen_size': '6.8'
+        },
+        {
+            'name': 'Xiaomi Redmi Note 12',
+            'price': 4299,
+            'currency': 'MDL',
+            'link': 'https://www.cactus.md/ro/catalogue/xiaomi-redmi-note-12',
+            'screen_size': '6.67'
+        },
+        {
+            'name': 'Nothing Phone (2)',
+            'price': 15999,
+            'currency': 'MDL',
+            'link': 'https://www.cactus.md/ro/catalogue/nothing-phone-2',
+            'screen_size': '6.7'
+        },
+        {
+            'name': 'Google Pixel 7 Pro',
+            'price': 19999,
+            'currency': 'MDL',
+            'link': 'https://www.cactus.md/ro/catalogue/google-pixel-7-pro',
+            'screen_size': '6.7'
+        }
+    ]
+
+    print("Started mock scraping products")
+    import time
+    time.sleep(1)
+    print("Finished the mock scraping")
+
+    return mock_products

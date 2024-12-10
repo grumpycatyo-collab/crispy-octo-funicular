@@ -62,13 +62,46 @@ def delete_product(product_id: int, db: Session = Depends(database.get_db)):
 
 
 @app.post("/upload/")
-async def upload_file(file: UploadFile = File(...)):
-    content = await file.read()
-    if file.filename.endswith('.json'):
-        data = json.loads(content)
-        return {"filename": file.filename, "content": data}
-    return {"filename": file.filename}
+async def upload_file(file: UploadFile = File(...), db: Session = Depends(database.get_db)):
+    try:
+        content = await file.read()
 
+        # Create new file upload record
+        db_file = models.FileUpload(
+            filename=file.filename,
+            content=content,
+            content_type=file.content_type
+        )
+
+        # If it's a JSON file, parse and store the JSON content
+        if file.filename.endswith('.json'):
+            try:
+                json_data = json.loads(content)
+                db_file.json_content = json.dumps(json_data)
+            except json.JSONDecodeError:
+                raise HTTPException(status_code=400, detail="Invalid JSON file")
+
+        # Save to database
+        db.add(db_file)
+        db.commit()
+        db.refresh(db_file)
+
+        # Return response
+        response = {
+            "id": db_file.id,
+            "filename": db_file.filename,
+            "content_type": db_file.content_type,
+            "upload_date": db_file.upload_date
+        }
+
+        if db_file.json_content:
+            response["json_content"] = json.loads(db_file.json_content)
+
+        return response
+
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
 
 config = uvicorn.Config(app, host="0.0.0.0", port=8000, loop="asyncio")
 server = uvicorn.Server(config)
