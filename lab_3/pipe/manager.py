@@ -24,7 +24,6 @@ class FTPPoller(threading.Thread):
 
     @property
     def web_server_url(self):
-        # Dynamically get the current port from manager
         return f'http://localhost:{self.manager.raft_port}/upload/'
 
     def download_and_process_file(self):
@@ -37,7 +36,6 @@ class FTPPoller(threading.Thread):
                 ftp.retrbinary(f"RETR {self.ftp_config['filename']}", temp_file.write)
                 temp_file_path = temp_file.name
 
-            # Send file to web server
             with open(temp_file_path, 'rb') as f:
                 files = {
                     'file': (
@@ -69,7 +67,7 @@ class FTPPoller(threading.Thread):
         while self.running:
             print("Polling FTP server...")
             self.download_and_process_file()
-            time.sleep(30)  # Wait 30 seconds before next poll
+            time.sleep(30)
 
     def stop(self):
         self.running = False
