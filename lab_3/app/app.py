@@ -6,7 +6,7 @@ import json
 import models, schemas, database
 from database import Base, engine
 import uvicorn
-
+from raft.raft_server import RaftServer
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
@@ -101,7 +101,26 @@ async def upload_file(file: UploadFile = File(...), db: Session = Depends(databa
         db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
 
-config = uvicorn.Config(app, host="0.0.0.0", port=8000, loop="asyncio")
+import os
+raft_server = None
+@app.on_event("startup")
+async def startup_event():
+    global raft_server
+    server_id = int(os.environ.get('SERVER_ID', 1))
+    port = int(os.environ.get('PORT', 5000))
+    peers_str = os.environ.get('PEERS', '')
+    peers = [int(p) for p in peers_str.split(',')] if peers_str else []
+
+    manager_url = os.environ.get('MANAGER_URL', 'http://localhost:8080')
+
+    print(f"Starting server {server_id} on port {port}")
+    print(f"Peers: {peers}")
+
+    raft_server = RaftServer(server_id, port, peers, manager_url)
+
+
+port = int(os.environ.get('PORT', 5000))
+config = uvicorn.Config(app, host="0.0.0.0", port=port, loop="asyncio")
 server = uvicorn.Server(config)
 
 if __name__ == "__main__":

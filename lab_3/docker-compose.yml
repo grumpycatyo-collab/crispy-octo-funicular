@@ -18,7 +18,6 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
-
   ftp_server:
     image: stilliard/pure-ftpd:hardened
     container_name: ftp_server
