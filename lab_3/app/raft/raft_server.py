@@ -22,27 +22,24 @@ class RaftServer:
         self.voted_for = None
         self.leader_id = None
         self.last_heartbeat = time.time()
-        self.election_timeout = random.uniform(150, 300) / 1000  # 150-300ms
-        self.last_heartbeat_times = {peer: 0 for peer in peers}  # Track last heartbeat from each peer
-        self.heartbeat_timeout = 0.3  # 300ms timeout for heartbeat
-        self.active_peers = set(peers)  # Track active peers
+        self.election_timeout = random.uniform(150, 300) / 1000
+        self.last_heartbeat_times = {peer: 0 for peer in peers}
+        self.heartbeat_timeout = 0.3
+        self.active_peers = set(peers)
         self.votes_received = 0
 
-        # Setup UDP server
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.udp_socket.bind(('localhost', port))
 
-        # Start election timer
         self.election_timer = threading.Thread(target=self.run_election_timer)
         self.election_timer.daemon = True
         self.election_timer.start()
 
-        # Start UDP listener
         self.udp_listener = threading.Thread(target=self.listen_udp)
         self.udp_listener.daemon = True
         self.udp_listener.start()
 
-        # Start heartbeat checker
+
         self.heartbeat_checker = threading.Thread(target=self.check_heartbeats)
         self.heartbeat_checker.daemon = True
         self.heartbeat_checker.start()
@@ -84,7 +81,6 @@ class RaftServer:
 
         print(f"Server {self.server_id} starting election for term {self.current_term}")
 
-        # Only request votes from active peers
         for peer in self.active_peers:
             try:
                 message = {
@@ -96,10 +92,9 @@ class RaftServer:
             except Exception as e:
                 print(f"Error sending vote request to peer {peer}: {e}")
 
-        # Wait for responses
         time.sleep(self.election_timeout)
 
-        # If we got majority votes from active peers and still a candidate, become leader
+
         if self.votes_received > len(self.active_peers) / 2 and self.state == ServerState.CANDIDATE:
             self.become_leader()
 
@@ -116,7 +111,7 @@ class RaftServer:
         except Exception as e:
             print(f"Error notifying manager: {e}")
 
-        # Start sending heartbeats
+
         self.heartbeat_thread = threading.Thread(target=self.send_heartbeats)
         self.heartbeat_thread.daemon = True
         self.heartbeat_thread.start()
@@ -142,7 +137,7 @@ class RaftServer:
                 self.active_peers = self.active_peers - dead_peers
                 print(f"Active peers updated: {self.active_peers}")
 
-            time.sleep(0.05)  # Send heartbeats every 50ms
+            time.sleep(0.05)
 
     def listen_udp(self):
         while True:
@@ -156,7 +151,7 @@ class RaftServer:
                         self.current_term = message['term']
                         self.state = ServerState.FOLLOWER
                         self.voted_for = message['candidate_id']
-                        # Send vote
+
                         response = {
                             'type': 'VOTE',
                             'term': self.current_term,

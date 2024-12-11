@@ -9,7 +9,6 @@ def log_output(process, server_id, stop_event):
     """Log output from the server process with proper thread safety"""
     while not stop_event.is_set():
         try:
-            # Read with timeout to allow checking stop_event
             line = process.stdout.readline()
             if not line:
                 break
@@ -67,13 +66,13 @@ def launch_servers(num_servers=3, base_port=5000):
                 [sys.executable, 'app/app.py'],
                 env=env,
                 stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,  # Merge stderr into stdout
+                stderr=subprocess.STDOUT,
                 bufsize=1,
                 universal_newlines=False
             )
             processes.append(process)
 
-            # Create and start logging thread
+
             log_thread = threading.Thread(
                 target=log_output,
                 args=(process, server_id, stop_event),
@@ -86,7 +85,7 @@ def launch_servers(num_servers=3, base_port=5000):
 
         print("\nAll servers are running. Press Ctrl+C to stop all servers.\n")
 
-        # Monitor processes
+
         while True:
             for i, process in enumerate(processes):
                 if process.poll() is not None:
@@ -96,12 +95,11 @@ def launch_servers(num_servers=3, base_port=5000):
     except KeyboardInterrupt:
         shutdown_gracefully(processes, stop_event)
 
-        # Wait for logging threads to finish
+
         for thread in threads:
             thread.join(timeout=1)
 
     finally:
-        # Ensure all processes are terminated
         for process in processes:
             try:
                 if process.poll() is None:

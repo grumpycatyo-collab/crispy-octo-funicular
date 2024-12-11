@@ -1,6 +1,6 @@
 import pika
 import json
-from scraper.scraper import scrape_cactus_phones
+from scraper.scraper import mock_scrape_cactus_phones
 
 def publish_products():
     connection = pika.BlockingConnection(
@@ -10,7 +10,7 @@ def publish_products():
 
     channel.queue_declare(queue='products_queue')
 
-    products = scrape_cactus_phones()
+    products = mock_scrape_cactus_phones()
 
     for product in products:
         channel.basic_publish(

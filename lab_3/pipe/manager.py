@@ -109,10 +109,9 @@ class ProductManager:
 
     def start(self):
         try:
-            # Start FTP polling thread
+
             self.ftp_poller.start()
 
-            # Start consuming messages from RabbitMQ
             self.channel.basic_consume(
                 queue='products_queue',
                 on_message_callback=self.process_message
