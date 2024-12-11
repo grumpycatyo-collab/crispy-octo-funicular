@@ -5,29 +5,48 @@ import time
 import os
 import signal
 import threading
+import queue
 
-def log_output(process, server_id):
-    # Capture both stdout and stderr
-    for line in iter(process.stdout.readline, b''):
-        print(f"[Server {server_id}] {line.strip()}")
-    for line in iter(process.stderr.readline, b''):
-        print(f"[Server {server_id} ERROR] {line.strip()}")
-    process.stdout.close()
-    process.stderr.close()
+def log_output(process, server_id, stop_event):
+    """Log output from the server process with proper thread safety"""
+    while not stop_event.is_set():
+        try:
+            # Read with timeout to allow checking stop_event
+            line = process.stdout.readline()
+            if not line:
+                break
+            sys.stdout.write(f"[Server {server_id}] {line.decode().strip()}\n")
+            sys.stdout.flush()
+        except:
+            break
 
-def shutdown_gracefully(processes):
-    print("\nShutting down all servers gracefully...")
+def shutdown_gracefully(processes, stop_event):
+    """Shutdown all servers gracefully"""
+    print("\nInitiating graceful shutdown...")
+
+    # Set stop event to signal logging threads to stop
+    stop_event.set()
+
+    # Send SIGTERM to all processes
     for process in processes:
-        if process.poll() is None:  # If still running
-            process.send_signal(signal.SIGINT)  # Send SIGINT for graceful shutdown
-
+        if process.poll() is None:
+            try:
+                process.terminate()
+            except:
+                print("Error terminating process")
+    # Wait for processes to finish
     for process in processes:
-        process.wait()
+        try:
+            process.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            process.kill()  # Force kill if not responding
 
     print("All servers have been stopped.")
 
 def launch_servers(num_servers=3, base_port=5000):
     processes = []
+    threads = []
+    stop_event = threading.Event()
 
     try:
         print("Launching RAFT web servers...")
@@ -50,28 +69,48 @@ def launch_servers(num_servers=3, base_port=5000):
                 [sys.executable, 'app/app.py'],
                 env=env,
                 stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True
+                stderr=subprocess.STDOUT,  # Merge stderr into stdout
+                bufsize=1,
+                universal_newlines=False
             )
             processes.append(process)
-            print(f"Started server {server_id} on port {port} with peers: {peers_str}")
+
+            # Create and start logging thread
+            log_thread = threading.Thread(
+                target=log_output,
+                args=(process, server_id, stop_event),
+                daemon=True
+            )
+            log_thread.start()
+            threads.append(log_thread)
+
             time.sleep(1)
 
-            log_thread = threading.Thread(target=log_output, args=(process, server_id))
-            log_thread.start()
-            time.sleep(1)
         print("\nAll servers are running. Press Ctrl+C to stop all servers.\n")
 
+        # Monitor processes
         while True:
             for i, process in enumerate(processes):
                 if process.poll() is not None:
-                        print(f"Server {i+1} has stopped unexpectedly!")
+                    print(f"Server {i+1} has stopped unexpectedly!")
             time.sleep(1)
 
     except KeyboardInterrupt:
-        shutdown_gracefully(processes)
+        shutdown_gracefully(processes, stop_event)
+
+        # Wait for logging threads to finish
+        for thread in threads:
+            thread.join(timeout=1)
+
+    finally:
+        # Ensure all processes are terminated
+        for process in processes:
+            try:
+                if process.poll() is None:
+                    process.kill()
+            except:
+                pass
 
 if __name__ == "__main__":
-    # You can specify the number of servers as a command line argument
     num_servers = int(sys.argv[1]) if len(sys.argv) > 1 else 3
     launch_servers(num_servers)
