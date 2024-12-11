@@ -10,17 +10,22 @@ import pika
 import json
 
 class FTPPoller(threading.Thread):
-    def __init__(self, queue):
+    def __init__(self, queue, manager):
         super().__init__()
         self.queue = queue
         self.running = True
+        self.manager = manager
         self.ftp_config = {
             'host': 'localhost',
             'user': 'testuser',
             'pass': 'testpass',
             'filename': 'processed_products.json'
         }
-        self.web_server_url = 'http://localhost:8000/upload/'
+
+    @property
+    def web_server_url(self):
+        # Dynamically get the current port from manager
+        return f'http://localhost:{self.manager.raft_port}/upload/'
 
     def download_and_process_file(self):
         try:
@@ -72,7 +77,8 @@ class FTPPoller(threading.Thread):
 class ProductManager:
     def __init__(self):
         self.queue = Queue()
-        self.ftp_poller = FTPPoller(self.queue)
+        self.ftp_poller = FTPPoller(self.queue, self)
+        self.raft_port = 5000
         self.setup_rabbitmq()
 
     def setup_rabbitmq(self):
@@ -88,7 +94,7 @@ class ProductManager:
 
             # Send to web server
             response = requests.post(
-                'http://localhost:8000/products/',
+                f'http://localhost:{self.raft_port}/products/',
                 json=product
             )
 

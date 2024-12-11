@@ -3,9 +3,7 @@ import subprocess
 import sys
 import time
 import os
-import signal
 import threading
-import queue
 
 def log_output(process, server_id, stop_event):
     """Log output from the server process with proper thread safety"""

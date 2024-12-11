@@ -49,7 +49,7 @@ class RaftServer:
         self.state = ServerState.CANDIDATE
         self.current_term += 1
         self.voted_for = self.server_id
-        votes = 1  # Vote for self
+        self.votes_received = 1  # Vote for self, make this an instance variable
 
         # Request votes from peers
         for peer in self.peers:
@@ -67,7 +67,7 @@ class RaftServer:
         time.sleep(self.election_timeout)
 
         # If we got majority votes and still a candidate, become leader
-        if votes > len(self.peers) / 2 and self.state == ServerState.CANDIDATE:
+        if self.votes_received > len(self.peers) / 2 and self.state == ServerState.CANDIDATE:
             self.become_leader()
 
     def become_leader(self):
@@ -75,7 +75,6 @@ class RaftServer:
         self.leader_id = self.server_id
         print(f"Server {self.server_id} became leader")
 
-        # Notify manager
         try:
             requests.post(
                 f"{self.manager_url}/update_leader",
@@ -121,6 +120,13 @@ class RaftServer:
                             'vote_granted': True
                         }
                         self.udp_socket.sendto(json.dumps(response).encode(), addr)
+
+                elif message['type'] == 'VOTE':  # Add handling for VOTE messages
+                    if (message['term'] == self.current_term and
+                            self.state == ServerState.CANDIDATE and
+                            message['vote_granted']):
+                        self.votes_received += 1
+                        print(f"Server {self.server_id} received vote. Total votes: {self.votes_received}")
 
                 elif message['type'] == 'HEARTBEAT':
                     if message['term'] >= self.current_term:
