@@ -1,5 +1,15 @@
 version: '3'
 services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: products_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
   rabbitmq:
     image: rabbitmq:3-management
     ports:
@@ -24,3 +34,5 @@ services:
 
 volumes:
   ftp_data:
+  postgres_data:
+    driver: local
