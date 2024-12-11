@@ -1,4 +1,3 @@
-# launch_servers.py
 import subprocess
 import sys
 import time
