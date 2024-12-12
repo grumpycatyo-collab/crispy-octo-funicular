@@ -22,5 +22,8 @@ def publish_products():
 
     connection.close()
 
+import time
 def run_publisher():
-    publish_products()
+    while True:
+        publish_products()
+        time.sleep(60)
